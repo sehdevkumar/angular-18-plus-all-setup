@@ -146,3 +146,7 @@ $dark-theme: mat.define-theme((
     use-system-variables: true,
   ),
 ));
+
+:root {
+  @include mat.all-component-themes($dark-theme);
+}
