@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
 })
 export class LandingComponent implements OnInit {
   landingData = signal<
@@ -15,10 +16,6 @@ export class LandingComponent implements OnInit {
       path: string;
     }>
   >([
-    {
-      name: 'home',
-      path: '',
-    },
 
     {
       name: 'Use Form Array',
