@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css'],
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule, RouterLink],
 })
 export class LandingComponent implements OnInit {
   landingData = signal<
@@ -16,10 +16,13 @@ export class LandingComponent implements OnInit {
       path: string;
     }>
   >([
-
     {
       name: 'Use Form Array',
       path: 'use-form-array',
+    },
+    {
+      name: 'Multi Step',
+      path: 'multi-step-form',
     },
   ]);
 

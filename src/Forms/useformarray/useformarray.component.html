@@ -1,41 +1,98 @@
 <div class="grid justify-center items-center w-full h-full overflow-auto">
   <form [formGroup]="personalDetails">
-    <h1 class="text-3xl" >Personal Details</h1>
+    <h1 class="text-3xl">Personal Details</h1>
     <!-- Name Field -->
-    
+
     <div class="flex flex-wrap gap-5">
-      <mat-form-field appearance="fill">
-        <input matInput formControlName="name" type="text" required placeholder="Name" />
-      </mat-form-field>
-  
-      <!-- Email Field -->
-      <mat-form-field appearance="fill">
-        <input matInput formControlName="email" type="text" required placeholder="Email" />
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          formControlName="name"
+          type="text"
+          required
+          placeholder="Name"
+        />
       </mat-form-field>
 
+      <!-- Email Field -->
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          formControlName="email"
+          type="text"
+          required
+          placeholder="Email"
+        />
+      </mat-form-field>
     </div>
 
     <!-- Addresses FormArray -->
-    <div formArrayName="address" >
-      <div class="flex gap-x-5"  *ngFor="let addressGroup of address?.controls; let i = index" [formGroupName]="i">
-        <mat-form-field appearance="fill">
-          <input matInput formControlName="permanentAddress" type="text" required placeholder="Permanent Address" />
+    <div formArrayName="address">
+      <div
+        class="flex gap-x-5"
+        *ngFor="let addressGroup of address?.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            formControlName="permanentAddress"
+            type="text"
+            required
+            placeholder="Permanent Address"
+          />
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <input matInput formControlName="currentAddress" type="text" required placeholder="Current Address" />
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            formControlName="currentAddress"
+            type="text"
+            required
+            placeholder="Current Address"
+          />
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <input matInput formControlName="zipCode" type="text" required placeholder="Zip Code" />
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            formControlName="zipCode"
+            type="text"
+            required
+            placeholder="Zip Code"
+          />
         </mat-form-field>
+
+        @if (i>0) {
+        <mat-icon
+        class="cursor-pointer hover:text-red-500"
+          aria-hidden="false"
+          (click)="deleteField(i)"
+          aria-label="Example home icon"
+          fontIcon="delete"
+        ></mat-icon>
+        }
       </div>
     </div>
 
     <div class="flex flex-row justify-center items-center gap-x-4">
-      <button mat-raised-button color="primary" type="button" (click)="addAddress()">Add Address</button>
-      <button mat-raised-button color="accent" type="submit" (click)="onDetails()" [disabled]="!personalDetails.valid">Submit</button>
-
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="addAddress()"
+      >
+        Add Address
+      </button>
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        (click)="onDetails()"
+        [disabled]="!personalDetails.valid"
+      >
+        Submit
+      </button>
     </div>
     <!-- Add Address Button -->
 

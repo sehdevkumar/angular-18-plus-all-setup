@@ -10,7 +10,7 @@ import {
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatButtonModule} from "@angular/material/button"
 import { MatInputModule } from '@angular/material/input';
-
+import {MatIconModule} from "@angular/material/icon"
 @Component({
   selector: 'app-useformarray',
   templateUrl: './useformarray.component.html',
@@ -22,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
   ],
 })
 export class UseformarrayComponent implements OnInit {
@@ -63,6 +64,10 @@ export class UseformarrayComponent implements OnInit {
   }
 
   onDetails() {
-     console.log(this.personalDetails,"please check this personal details")
+    console.log(this.personalDetails, 'please check this personal details');
+  }
+
+  deleteField(i:number){
+    this.address.removeAt(i)
   }
 }
