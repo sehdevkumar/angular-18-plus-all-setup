@@ -21,6 +21,10 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'rxjs-creator-opts',
+     loadComponent: () => import('../RxjsAdvanced/creator-opts/creator-opts.component').then(d=>d.CreatorOptsComponent)
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full',

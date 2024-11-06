@@ -24,6 +24,10 @@ export class LandingComponent implements OnInit {
       name: 'Multi Step',
       path: 'multi-step-form',
     },
+    {
+      name: 'Rxjs Creator Operators',
+      path: 'rxjs-creator-opts',
+    },
   ]);
 
   constructor() {}
