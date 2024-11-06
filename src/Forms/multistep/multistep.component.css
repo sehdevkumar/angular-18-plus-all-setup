@@ -1,0 +1,14 @@
+.done-step {
+     width:20px;
+     height: 20px;
+     background: green;
+     border-radius: 100%;
+}
+
+
+.initial-step {
+      width:20px;
+     height: 20px;
+     background:grey;
+     border-radius: 100%;
+}
