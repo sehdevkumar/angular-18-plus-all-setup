@@ -1,24 +1,285 @@
-<div class="h-full">
+<div class="h-full overflow-auto">
   <div class="w-full flex flex-row p-10">
     @for (item of userDetails(); track $index) {
-  
-      <div class="flex flex-row relative h-[40px] w-full items-center">
-        <div class="absolute top-[-10px]  text-center uppercase">{{item.displayname}}</div>
-          
-        <div class="initial-step z-20" [class.done-step]="item.state"></div>
-        <mat-progress-bar
-          class="bg-slate-800 w-full"
-          mode="determinate"
-          [value]="item.state ? 100 : 0"
-        ></mat-progress-bar>
+
+    <div class="flex flex-row relative h-[40px] w-full items-center">
+      <div class="absolute top-[-10px] text-center uppercase">
+        {{ item.displayname }}
       </div>
+
+      <div class="initial-step z-20" [class.done-step]="item.state"></div>
+      <mat-progress-bar
+        class="bg-slate-800 w-full"
+        mode="determinate"
+        [value]="item.state ? 100 : 0"
+      ></mat-progress-bar>
+    </div>
     }
-  
-  
   </div>
   <div class="flex flex-row justify-center gap-x-20">
-    <button mat-raised-button  (click)="onBack()">Back</button>
-    <button mat-raised-button (click)="onNext()" >Next</button>
+    <button mat-raised-button (click)="onBack()">Back</button>
+    <button mat-raised-button (click)="onNext()">Next</button>
   </div>
 
+  <div class="grid h-full w-full">
+    <form [formGroup]="userDetailsForm">
+      <div formGroupName="uploadResume">
+        <input class="hidden" type="file" formControlName="file" />
+
+        <button mat-button>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="upload"
+          />
+        </button>
+      </div>
+      <div formGroupName="myInformation" class="flex flex-col gap-y-5 p-10">
+        <mat-form-field [appearance]="'outline'">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            formControlName="firstName"
+            type="text"
+            required
+            placeholder=""
+          />
+        </mat-form-field>
+
+        <mat-form-field [appearance]="'outline'">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            formControlName="lastName"
+            type="text"
+            required
+            placeholder=""
+          />
+        </mat-form-field>
+
+        <mat-form-field [appearance]="'outline'">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            formControlName="email"
+            type="email"
+            required
+            placeholder=""
+          />
+        </mat-form-field>
+      </div>
+      <div formArrayName="address">
+        @for (item of addressForm.controls; track $index) {
+
+        <div [formGroupName]="$index" class="grid grid-cols-2 p-10 gap-x-5">
+          <mat-form-field [appearance]="'outline'">
+            <mat-label>Country</mat-label>
+            <input
+              matInput
+              formControlName="country"
+              type="text"
+              required
+              placeholder=""
+            />
+          </mat-form-field>
+
+          <mat-form-field [appearance]="'outline'">
+            <mat-label>Address Line 1</mat-label>
+            <input
+              matInput
+              formControlName="address1"
+              type="text"
+              required
+              placeholder=""
+            />
+          </mat-form-field>
+          <mat-form-field [appearance]="'outline'">
+            <mat-label>Address Line 2</mat-label>
+            <input
+              matInput
+              formControlName="address2"
+              type="text"
+              required
+              placeholder=""
+            />
+          </mat-form-field>
+
+          <mat-form-field [appearance]="'outline'">
+            <mat-label>Zip Code</mat-label>
+            <input
+              matInput
+              formControlName="zipCode"
+              type="text"
+              required
+              placeholder=""
+            />
+          </mat-form-field>
+
+          <mat-form-field [appearance]="'outline'">
+            <mat-label>State</mat-label>
+            <input
+              matInput
+              formControlName="state"
+              type="text"
+              required
+              placeholder=""
+            />
+          </mat-form-field>
+
+          <mat-form-field [appearance]="'outline'">
+            <mat-label>City</mat-label>
+            <input
+              matInput
+              formControlName="city"
+              type="text"
+              required
+              placeholder=""
+            />
+          </mat-form-field>
+        </div>
+
+        }
+      </div>
+      <div formGroupName="experience" class="p-10 flex flex-col gap-y-5">
+        <mat-form-field [appearance]="'outline'">
+          <mat-label>Total Experience</mat-label>
+          <input
+            matInput
+            formControlName="totalExperience"
+            type="text"
+            required
+            placeholder=""
+          />
+        </mat-form-field>
+
+        <div formArrayName="experiences">
+          @for (item of getExperienceForm.controls; track $index) {
+          <p class="text-3xl pb-2">Experience</p>
+
+          <div [formGroupName]="$index" class="flex flex-col gap-y-2">
+            <mat-form-field [appearance]="'outline'">
+              <mat-label>Job Title</mat-label>
+              <input
+                matInput
+                formControlName="jobTitle"
+                type="text"
+                required
+                placeholder=""
+              />
+            </mat-form-field>
+            <mat-form-field [appearance]="'outline'">
+              <mat-label>Company</mat-label>
+              <input
+                matInput
+                formControlName="company"
+                type="text"
+                required
+                placeholder=""
+              />
+            </mat-form-field>
+
+            <mat-form-field [appearance]="'outline'">
+              <mat-label>From</mat-label>
+              <input
+                matInput
+                formControlName="from"
+                type="datetime"
+                required
+                placeholder=""
+              />
+            </mat-form-field>
+
+            <mat-form-field [appearance]="'outline'">
+              <mat-label>To</mat-label>
+              <input
+                matInput
+                formControlName="to"
+                type="datetime"
+                required
+                placeholder=""
+              />
+            </mat-form-field>
+          </div>
+
+          }
+        </div>
+      </div>
+
+      <div formArrayName="education" class="p-10">
+        @for (item of getEducationForm.controls; track $index) {
+        <p class="text-3xl pb-2">Education</p>
+
+        <div [formGroupName]="$index" class="flex flex-col gap-y-2 grid-cols-2">
+          <mat-form-field [appearance]="'outline'">
+            <mat-label>University</mat-label>
+            <input
+              matInput
+              formControlName="university"
+              type="text"
+              required
+              placeholder=""
+            />
+          </mat-form-field>
+          <mat-form-field [appearance]="'outline'">
+            <mat-label>Degree</mat-label>
+            <input
+              matInput
+              formControlName="degree"
+              type="text"
+              required
+              placeholder=""
+            />
+          </mat-form-field>
+
+          <mat-form-field [appearance]="'outline'">
+            <mat-label>field</mat-label>
+            <input
+              matInput
+              formControlName="field"
+              type="text"
+              required
+              placeholder=""
+            />
+          </mat-form-field>
+
+          <mat-form-field [appearance]="'outline'">
+            <mat-label>From</mat-label>
+            <input
+              matInput
+              formControlName="from"
+              type="datetime"
+              required
+              placeholder=""
+            />
+          </mat-form-field>
+
+          <mat-form-field [appearance]="'outline'">
+            <mat-label>To</mat-label>
+            <input
+              matInput
+              formControlName="to"
+              type="datetime"
+              required
+              placeholder=""
+            />
+          </mat-form-field>
+        </div>
+
+        }
+      </div>
+
+      <div formGroupName="profile p-10">
+        <mat-form-field [appearance]="'outline'">
+          <mat-label>Profile</mat-label>
+          <input
+            matInput
+            formControlName="image"
+            type="text"
+            required
+            placeholder=""
+          />
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
 </div>
