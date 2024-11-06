@@ -1,40 +1,24 @@
-<div class="w-full h-full flex flex-row">
-  <div class="flex flex-row w-full items-center">
-    <div>Upload Resume</div>
-    <div class="initial-step"></div>
-    <mat-progress-bar
-      class="bg-slate-800 w-full"
-      mode="determinate"
-      value="40"
-    ></mat-progress-bar>
-    <div class="initial-step"></div>
+<div class="h-full">
+  <div class="w-full flex flex-row p-10">
+    @for (item of userDetails(); track $index) {
+  
+      <div class="flex flex-row relative h-[40px] w-full items-center">
+        <div class="absolute top-[-10px]  text-center uppercase">{{item.displayname}}</div>
+          
+        <div class="initial-step z-20" [class.done-step]="item.state"></div>
+        <mat-progress-bar
+          class="bg-slate-800 w-full"
+          mode="determinate"
+          [value]="item.state ? 100 : 0"
+        ></mat-progress-bar>
+      </div>
+    }
+  
+  
+  </div>
+  <div class="flex flex-row justify-center gap-x-20">
+    <button mat-raised-button  (click)="onBack()">Back</button>
+    <button mat-raised-button (click)="onNext()" >Next</button>
   </div>
 
-  <div class="flex flex-row w-full items-center">
-    <mat-progress-bar
-      class="bg-slate-800 w-full"
-      mode="determinate"
-      value="40"
-    ></mat-progress-bar>
-    <div></div>
-    <div class="initial-step"></div>
-  </div>
-
-  <div class="flex flex-row w-full items-center">
-    <mat-progress-bar
-      class="bg-slate-800 w-full"
-      mode="determinate"
-      value="40"
-    ></mat-progress-bar>
-    <div class="initial-step"></div>
-  </div>
-
-  <div class="flex flex-row w-full items-center">
-    <mat-progress-bar
-      class="bg-slate-800 w-full"
-      mode="determinate"
-      value="40"
-    ></mat-progress-bar>
-    <div class="initial-step"></div>
-  </div>
 </div>

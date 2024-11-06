@@ -1,8 +1,9 @@
 .done-step {
      width:20px;
      height: 20px;
-     background: green;
-     border-radius: 100%;
+     background: green !important;
+     border-radius: 50%;
+     z-index: 9999999;
 }
 
 
@@ -10,5 +11,5 @@
       width:20px;
      height: 20px;
      background:grey;
-     border-radius: 100%;
+     border-radius: 50%;
 }
