@@ -1,4 +1,4 @@
-<div class="h-full overflow-auto">
+<div class="h-full w-full">
   <div class="w-full flex flex-row p-10">
     @for (item of userDetails(); track $index) {
 
@@ -16,25 +16,33 @@
     </div>
     }
   </div>
-  <div class="flex flex-row justify-center gap-x-20">
-    <button mat-raised-button (click)="onBack()">Back</button>
-    <button mat-raised-button (click)="onNext()">Next</button>
-  </div>
 
-  <div class="grid h-full w-full">
+  <div class="grid h-[calc(100%-190px)] w-full overflow-auto">
     <form [formGroup]="userDetailsForm">
-      <div formGroupName="uploadResume">
-        <input class="hidden" type="file" formControlName="file" />
+      <div
+        formGroupName="uploadResume"
+        class="flex justify-center w-full"
+        *ngIf="currentStateIndex() === 0"
+      >
+        <input class="hidden" type="file" #fileUpload formControlName="file" />
 
-        <button mat-button>
+        <div
+          class="w-[200px] flex justify-center items-center text-center h-[200px] bg-blue-100 border-dotted border-blue-500 border-2"
+        >
           <mat-icon
             aria-hidden="false"
             aria-label="Example home icon"
             fontIcon="upload"
+            class="cursor-pointer"
+            (click)="fileUpload.click()"
           />
-        </button>
+        </div>
       </div>
-      <div formGroupName="myInformation" class="flex flex-col gap-y-5 p-10">
+      <div
+        formGroupName="myInformation"
+        *ngIf="currentStateIndex() === 1"
+        class="flex flex-col gap-y-5 p-10"
+      >
         <mat-form-field [appearance]="'outline'">
           <mat-label>First Name</mat-label>
           <input
@@ -68,10 +76,14 @@
           />
         </mat-form-field>
       </div>
-      <div formArrayName="address">
+      <div
+        formArrayName="address"
+        class="p-10"
+        *ngIf="currentStateIndex() === 2"
+      >
         @for (item of addressForm.controls; track $index) {
 
-        <div [formGroupName]="$index" class="grid grid-cols-2 p-10 gap-x-5">
+        <div [formGroupName]="$index" class="grid grid-cols-2 gap-x-5">
           <mat-form-field [appearance]="'outline'">
             <mat-label>Country</mat-label>
             <input
@@ -139,8 +151,13 @@
         </div>
 
         }
+        <button mat-raised-button (click)="addNewAddress()">Add Address</button>
       </div>
-      <div formGroupName="experience" class="p-10 flex flex-col gap-y-5">
+      <div
+        formGroupName="experience"
+        *ngIf="currentStateIndex() === 3"
+        class="p-10 flex flex-col gap-y-5"
+      >
         <mat-form-field [appearance]="'outline'">
           <mat-label>Total Experience</mat-label>
           <input
@@ -154,7 +171,7 @@
 
         <div formArrayName="experiences">
           @for (item of getExperienceForm.controls; track $index) {
-          <p class="text-3xl pb-2">Experience</p>
+          <p class="text-3xl pb-2">Experience {{$index === 0 ? 'Recent' : $index + 1}}</p>
 
           <div [formGroupName]="$index" class="flex flex-col gap-y-2">
             <mat-form-field [appearance]="'outline'">
@@ -202,10 +219,17 @@
           </div>
 
           }
+          <button mat-raised-button (click)="addNewExperience()">
+            Add Experience
+          </button>
         </div>
       </div>
 
-      <div formArrayName="education" class="p-10">
+      <div
+        formArrayName="education"
+        *ngIf="currentStateIndex() === 4"
+        class="p-10"
+      >
         @for (item of getEducationForm.controls; track $index) {
         <p class="text-3xl pb-2">Education</p>
 
@@ -268,7 +292,11 @@
         }
       </div>
 
-      <div formGroupName="profile p-10">
+      <div
+        formGroupName="profile"
+        *ngIf="currentStateIndex() === 5"
+        class="p-10"
+      >
         <mat-form-field [appearance]="'outline'">
           <mat-label>Profile</mat-label>
           <input
@@ -281,5 +309,10 @@
         </mat-form-field>
       </div>
     </form>
+  </div>
+
+  <div class="flex flex-row items-center justify-center gap-x-20">
+    <button mat-raised-button (click)="onBack()">Back</button>
+    <button mat-raised-button (click)="onNext()">Next</button>
   </div>
 </div>

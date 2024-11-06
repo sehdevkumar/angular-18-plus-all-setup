@@ -1,7 +1,19 @@
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+  signal,
+} from '@angular/core';
+import {
+  FormArray,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -22,7 +34,17 @@ type stepType =
   templateUrl: './multistep.component.html',
   styleUrls: ['./multistep.component.css'],
   standalone: true,
-  imports: [CommonModule, MatProgressBarModule, MatButtonModule,ReactiveFormsModule,MatFormFieldModule , MatIconModule ,MatInputModule,MatLabel],
+  imports: [
+    CommonModule,
+    MatProgressBarModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatLabel,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MultistepComponent implements OnInit {
   constructor() {}
@@ -82,7 +104,8 @@ export class MultistepComponent implements OnInit {
   }
 
   get getExperienceForm() {
-    return ((this.userDetailsForm.get('experience') as any)?.controls.experiences as FormArray)
+    return (this.userDetailsForm.get('experience') as any)?.controls
+      .experiences as FormArray;
   }
 
   get getEducationForm() {
@@ -139,7 +162,7 @@ export class MultistepComponent implements OnInit {
       }),
     });
 
-    console.log(this.userDetailsForm)
+    console.log(this.userDetailsForm);
   }
 
   onMaintainedState() {
@@ -154,6 +177,30 @@ export class MultistepComponent implements OnInit {
     });
 
     this.userDetails.set(finalDetails);
+  }
+
+  addNewAddress() {
+    this.addressForm.controls.push(
+      this.fb.group({
+        country: ['', Validators.required],
+        address1: ['', Validators.required],
+        address2: ['', Validators.required],
+        zipCode: ['', Validators.required],
+        state: ['', Validators.required],
+        city: ['', Validators.required],
+      })
+    );
+  }
+
+  addNewExperience() {
+     this.getExperienceForm.controls.push(
+       this.fb.group({
+         jobTitle: ['', Validators.required],
+         company: ['', Validators.required],
+         from: ['', Validators.required],
+         to: [''],
+       })
+     );
   }
 
   onNext() {
