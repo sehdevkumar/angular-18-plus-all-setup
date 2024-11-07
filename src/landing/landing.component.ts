@@ -28,6 +28,10 @@ export class LandingComponent implements OnInit {
       name: 'Rxjs Creator Operators',
       path: 'rxjs-creator-opts',
     },
+    {
+      name: 'Rxjs Join Operators',
+      path: 'rxjs-join-opts',
+    },
   ]);
 
   constructor() {}

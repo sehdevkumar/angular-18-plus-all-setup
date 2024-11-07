@@ -44,7 +44,6 @@ type stepType =
     MatInputModule,
     MatLabel,
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MultistepComponent implements OnInit {
   constructor() {}
@@ -162,6 +161,8 @@ export class MultistepComponent implements OnInit {
       }),
     });
 
+    
+    this.onUpdateMyInformation();
     console.log(this.userDetailsForm);
   }
 
@@ -193,14 +194,24 @@ export class MultistepComponent implements OnInit {
   }
 
   addNewExperience() {
-     this.getExperienceForm.controls.push(
-       this.fb.group({
-         jobTitle: ['', Validators.required],
-         company: ['', Validators.required],
-         from: ['', Validators.required],
-         to: [''],
-       })
-     );
+    this.getExperienceForm.controls.push(
+      this.fb.group({
+        jobTitle: ['', Validators.required],
+        company: ['', Validators.required],
+        from: ['', Validators.required],
+        to: [''],
+      })
+    );
+  }
+
+  onUpdateMyInformation() {
+    this.getExperienceForm.patchValue([
+      {
+        firstName: 'hello',
+        lastName: 'hello',
+        email: 'sk@gmail.com',
+      },
+    ]);
   }
 
   onNext() {

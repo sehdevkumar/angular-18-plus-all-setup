@@ -22,7 +22,17 @@ export const routes: Routes = [
   },
   {
     path: 'rxjs-creator-opts',
-     loadComponent: () => import('../RxjsAdvanced/creator-opts/creator-opts.component').then(d=>d.CreatorOptsComponent)
+    loadComponent: () =>
+      import('../RxjsAdvanced/creator-opts/creator-opts.component').then(
+        (d) => d.CreatorOptsComponent
+      ),
+  },
+  {
+    path: 'rxjs-join-opts',
+    loadComponent: () =>
+      import('../RxjsAdvanced/join-opts/join-opts.component').then(
+        (d) => d.JoinOptsComponent
+      ),
   },
   {
     path: '',

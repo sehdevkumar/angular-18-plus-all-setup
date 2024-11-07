@@ -4,7 +4,7 @@ import { from, fromEvent, iif, of } from 'rxjs';
 
 /**
  * @fileoverview
- *
+ *  These Operators used to create the stream
  * 1. from
  * 2. of
  * 3. fromEvent

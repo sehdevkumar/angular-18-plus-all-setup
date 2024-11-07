@@ -1,8 +1,8 @@
-<div class="w-full bg-slate-600 h-screen flex justify-center items-center">
+<div class="w-full  h-screen flex justify-center items-center">
   @defer(on idle) {
     <div class="grid  gap-8 p-8 rounded-lg w-[80%] max-w-lg grid-cols-2">
       @for (item of landingData(); track $index) {
-        <div [routerLink]="item.path" class="p-8 cursor-pointer h-32 flex text-center items-center justify-center bg-green-800 rounded-md shadow-md text-white font-semibold">
+        <div [routerLink]="item.path" class="p-8 cursor-pointer h-32 flex text-center items-center justify-center bg-green-800 rounded-md shadow-md text-white font-semibold font-mono">
           {{ item.name }}
         </div>
       }
