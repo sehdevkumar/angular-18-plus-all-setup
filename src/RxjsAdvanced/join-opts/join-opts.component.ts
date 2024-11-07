@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { combineLatest, combineLatestAll, fromEvent, interval, map, of, Subject, take } from 'rxjs';
+import { combineLatest, combineLatestAll, concat, fromEvent, interval, map, of, Subject, take } from 'rxjs';
 
 /**
  * @fileoverview
@@ -27,6 +27,7 @@ export class JoinOptsComponent implements OnInit {
 
   ngOnInit() {
     this.optCombineLatest()
+    this.optConcat()
   }
 
   /**
@@ -42,14 +43,14 @@ export class JoinOptsComponent implements OnInit {
     })
 
 
-    console.log("============================End of the CombineLatest Operator=================================")
-
-
-
+    
+    
+    
     subject1.next(1);
     subject2.next(2);
     subject2.next(3);
     
+    console.log("============================End of the CombineLatest Operator=================================")
 
   }
 
@@ -57,8 +58,22 @@ export class JoinOptsComponent implements OnInit {
    * join the subjects
    */
   optConcat() {
-
+      
+    const subject1 = new Subject();
+    const subject2 = new Subject();
     
+    // Direct use
+    concat(subject1, subject2).subscribe((d) => {
+      console.log('concat', d);
+    });
+    
+    subject1.next(1);
+    subject2.next(2);
+    subject2.next(3);
+    
+    console.log(
+      '============================End of the concat Operator================================='
+    );
   }
 
   optForkJoin() {}
