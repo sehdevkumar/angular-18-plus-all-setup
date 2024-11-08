@@ -32,6 +32,10 @@ export class LandingComponent implements OnInit {
       name: 'Rxjs Join Operators',
       path: 'rxjs-join-opts',
     },
+    {
+      name: 'Rxjs Transformation Operators',
+      path: 'rxjs-transformation-opts',
+    },
   ]);
 
   constructor() {}
