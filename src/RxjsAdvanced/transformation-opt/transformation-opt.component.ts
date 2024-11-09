@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { concatMap, delay, exhaustMap, interval, map, mergeMap, of, take, tap } from 'rxjs';
+import { concatMap, delay, exhaustMap, fromEvent, interval, map, mergeMap, of, switchMap, take, tap } from 'rxjs';
 
 /**
  * @author sehdevkumar@atai.ai
@@ -20,7 +20,8 @@ export class TransformationOptComponent implements OnInit {
     // this.optMap()
     // this.optMergeMap()
     //  this.optConcatMap()
-    this.optExhaustMap()
+    // this.optExhaustMap()
+    this.optSwitchMap()
   }
 
   
@@ -82,8 +83,17 @@ export class TransformationOptComponent implements OnInit {
   }
 
 
+  /**
+   * Use to Cancel the Previous Stream if new Stream Emits
+   */
   optSwitchMap() {
-     
+     fromEvent(document, 'click')
+       .pipe(
+         // restart counter on every click
+         switchMap(() => interval(1000)),
+         take(10)
+       )
+       .subscribe(d=> d===0 ? console.log('Restarted') : console.log('Continue'));
   }
 
 
