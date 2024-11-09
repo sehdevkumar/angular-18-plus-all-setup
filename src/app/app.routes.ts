@@ -35,6 +35,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'rxjs-transformation-opts',
+    loadComponent: () =>
+      import('../RxjsAdvanced/transformation-opt/transformation-opt.component').then(
+        (d) => d.TransformationOptComponent
+      ),
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full',
