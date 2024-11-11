@@ -1,0 +1,12 @@
+<div
+  class="h-screen flex-col text-4xl w-screen flex items-center justify-center bg-blue-500 text-white"
+>
+  <h1>Ngrx</h1>
+
+  <div class="flex flex-col w-full justify-center">
+    <p class="text-2xl">
+      {{ message$ | async }}
+    </p>
+    <button mat-raised-button (click)="onClickSendMessage()">Send</button>
+  </div>
+</div>

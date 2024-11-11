@@ -21,7 +21,7 @@ export class TransformationOptComponent implements OnInit {
     // this.optMergeMap()
     //  this.optConcatMap()
     // this.optExhaustMap()
-    this.optSwitchMap()
+    // this.optSwitchMap()
   }
 
   

@@ -37,9 +37,16 @@ export const routes: Routes = [
   {
     path: 'rxjs-transformation-opts',
     loadComponent: () =>
-      import('../RxjsAdvanced/transformation-opt/transformation-opt.component').then(
-        (d) => d.TransformationOptComponent
-      ),
+      import(
+        '../RxjsAdvanced/transformation-opt/transformation-opt.component'
+      ).then((d) => d.TransformationOptComponent),
+  },
+  {
+    path: 'ngrx-store',
+    loadComponent: () =>
+      import(
+        '../Ngrx/consume-state/consume-state.component'
+      ).then((d) => d.ConsumeStateComponent),
   },
   {
     path: '',

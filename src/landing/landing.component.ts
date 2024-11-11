@@ -36,6 +36,10 @@ export class LandingComponent implements OnInit {
       name: 'Rxjs Transformation Operators',
       path: 'rxjs-transformation-opts',
     },
+    {
+      name: 'Ngrx Store',
+      path: 'ngrx-store',
+    },
   ]);
 
   constructor() {}
