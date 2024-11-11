@@ -47,6 +47,11 @@ export class LandingComponent implements OnInit {
       path: 'ngrx-store',
       color: '#4DB6AC', // Teal, to represent stability and trustworthiness
     },
+    {
+      name: 'Change Detuction',
+      path: 'change-detuction',
+      color: '#4D76AC', // Teal, to represent stability and trustworthiness
+    },
   ]);
 
   constructor() {}
