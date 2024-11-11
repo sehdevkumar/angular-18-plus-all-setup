@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Node2Component } from '../node2/node2.component';
-import { interval, map, Observable } from 'rxjs';
+import { interval, map, Observable, take } from 'rxjs';
 
 @Component({
   selector: 'app-node1',
@@ -17,7 +17,7 @@ export class Node1Component implements OnInit {
   counter$:number = 0;
 
   ngOnInit() {
-    interval(500).pipe(map(d=> d*10)).subscribe(d=> {
+    interval(500).pipe(map(d=> d*10),take(50)).subscribe(d=> {
        this.counter$ = d;
     })
   }

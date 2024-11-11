@@ -17,7 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrls: ['./root.component.css'],
   standalone: true,
   imports: [CommonModule, Node1Component, Node3Component, MatButtonModule],
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RootComponent implements OnInit {
   constructor() {}
@@ -26,18 +26,24 @@ export class RootComponent implements OnInit {
 
   cdRef = inject(ChangeDetectorRef);
 
-  toggleChangeDetection = signal<boolean>(true);
+  toggleChangeDetection = signal<boolean>(false);
+  isChangeDetectionEnabled = signal(false);
 
   ngOnInit() {
     this.isOnPushOn.set((this as any).__proto__.constructor.ɵcmp.onPush);
   }
 
   onClickToggle() {
+
     this.toggleChangeDetection.set(!this.toggleChangeDetection());
     if (this.toggleChangeDetection()) {
+      this.isChangeDetectionEnabled.set(true);
       this.cdRef.reattach();
+
     } else {
+      this.isChangeDetectionEnabled.set(false);
       this.cdRef.detach();
     }
+   this.cdRef.detectChanges()
   }
 }
