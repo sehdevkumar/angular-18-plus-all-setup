@@ -48,8 +48,8 @@ export class LandingComponent implements OnInit {
       color: '#4DB6AC', // Teal, to represent stability and trustworthiness
     },
     {
-      name: 'Change Detuction',
-      path: 'change-detuction',
+      name: 'Change Detection',
+      path: 'change-detection',
       color: '#4D76AC', // Teal, to represent stability and trustworthiness
     },
   ]);

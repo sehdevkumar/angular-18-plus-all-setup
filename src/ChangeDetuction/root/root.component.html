@@ -1,3 +1,14 @@
-<app-node1> </app-node1>
+<div class="grid h-full w-full grid-rows-[max-content,max-content,1fr]">
+    
+    <h1 class="text-5xl font-mono text-center">Change Detection</h1>
+    <span class="absolute left-3 top-3 text-red-700 text-4xl">On Push Enabled: {{isOnPushOn() ? "Yes" : "No"}}</span>
+    <button class="absolute left-3 h-auto top-10 bg-green-500" mat-raised-button (click)="onClickToggle()">Toggle Change Detection</button>
 
-<app-node3></app-node3>
+    
+    <div class="flex flex-row w-full gap-x-10 gap-y-5 h-full justify-center items-center ">
+        <app-node1></app-node1>
+        <app-node3></app-node3>
+    </div>
+</div>
+
+

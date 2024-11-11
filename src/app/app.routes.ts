@@ -44,9 +44,16 @@ export const routes: Routes = [
   {
     path: 'ngrx-store',
     loadComponent: () =>
-      import(
-        '../Ngrx/consume-state/consume-state.component'
-      ).then((d) => d.ConsumeStateComponent),
+      import('../Ngrx/consume-state/consume-state.component').then(
+        (d) => d.ConsumeStateComponent
+      ),
+  },
+  {
+    path: 'change-detection',
+    loadComponent: () =>
+      import('../ChangeDetuction/root/root.component').then(
+        (d) => d.RootComponent
+      ),
   },
   {
     path: '',

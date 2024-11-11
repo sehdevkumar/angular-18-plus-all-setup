@@ -1,0 +1,6 @@
+.changeDetection {
+     background: red !important;
+}
+.changeNoDetection {
+     background: green !important;
+}
