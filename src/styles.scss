@@ -89,3 +89,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+
+.dirty  {
+	 background-color: green !important;
+}
+
+.no-dirty {
+	 background-color: red;
+}
