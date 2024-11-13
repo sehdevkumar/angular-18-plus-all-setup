@@ -66,9 +66,13 @@ export const routes: Routes = [
   {
     path: 'http-calls',
     loadComponent: () =>
-      import('../HttpCall/HttpCall.component').then(
-        (d) => d.HttpCallComponent
-      ),
+      import('../HttpCall/HttpCall.component').then((d) => d.HttpCallComponent),
+    canActivate: [roleGuardGuard],
+  },
+  {
+    path: 'dynamic-load-component',
+    loadComponent: () =>
+      import('../DynamicLoad/DynamicLoad.component').then((d) => d.DynamicLoadComponent),
     canActivate: [roleGuardGuard],
   },
   {

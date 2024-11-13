@@ -55,7 +55,12 @@ export class LandingComponent implements OnInit {
     {
       name: 'Http Calls',
       path: 'http-calls',
-      color: "#f676de"
+      color: '#f676de',
+    },
+    {
+      name: 'Dynamic Load Component',
+      path: 'dynamic-load-component',
+      color: '#fc0606',
     },
   ]);
 
