@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { BComponent } from '../b/b.component';
 import { EComponent } from '../e/e.component';
 
@@ -8,13 +8,19 @@ import { EComponent } from '../e/e.component';
   templateUrl: './a.component.html',
   styleUrls: ['./a.component.css'],
   standalone: true,
-  imports: [CommonModule,BComponent,EComponent]
+  imports: [CommonModule, BComponent, EComponent],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class AComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  flipColor = false;
+  cdRef = inject(ChangeDetectorRef);
 
   ngOnInit() {
+    setInterval(() => {
+      this.flipColor = !this.flipColor;
+      // this.cdRef.detectChanges();
+    }, 1000);
   }
-
 }

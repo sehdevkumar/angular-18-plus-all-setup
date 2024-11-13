@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FComponent } from '../f/f.component';
 import { GComponent } from '../g/g.component';
 
@@ -7,19 +7,19 @@ import { GComponent } from '../g/g.component';
   selector: 'app-e',
   templateUrl: './e.component.html',
   styleUrls: ['./e.component.css'],
-  standalone:true,
-  imports:[CommonModule,FComponent,GComponent]
+  standalone: true,
+  imports: [CommonModule, FComponent, GComponent],
 })
-export class EComponent{
+export class EComponent {
+  constructor() {}
 
-  constructor() { }
+  flipColor = false;
+  cdRef = inject(ChangeDetectorRef);
 
-
-  ngDoCheck(): void {
-    console.log("I shoould run")
-    
+  ngOnInit() {
+    setInterval(() => {
+      this.flipColor = !this.flipColor;
+      this.cdRef.detectChanges();
+    }, 1000);
   }
-
-
-
 }
