@@ -62,6 +62,11 @@ export class LandingComponent implements OnInit {
       path: 'dynamic-load-component',
       color: '#fc0606',
     },
+    {
+      name: 'Content Projects',
+      path: 'content-projection',
+      color: '#000006',
+    },
   ]);
 
   constructor() {}

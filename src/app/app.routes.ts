@@ -72,7 +72,17 @@ export const routes: Routes = [
   {
     path: 'dynamic-load-component',
     loadComponent: () =>
-      import('../DynamicLoad/DynamicLoad.component').then((d) => d.DynamicLoadComponent),
+      import('../DynamicLoad/DynamicLoad.component').then(
+        (d) => d.DynamicLoadComponent
+      ),
+    canActivate: [roleGuardGuard],
+  },
+  {
+    path: 'content-projection',
+    loadComponent: () =>
+      import('../ContentProjections/ContentProjections.component').then(
+        (d) => d.ContentProjectionsComponent
+      ),
     canActivate: [roleGuardGuard],
   },
   {
