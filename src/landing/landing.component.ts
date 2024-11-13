@@ -52,6 +52,11 @@ export class LandingComponent implements OnInit {
       path: 'change-detection',
       color: '#4D76AC', // Teal, to represent stability and trustworthiness
     },
+    {
+      name: 'Http Calls',
+      path: 'http-calls',
+      color: "#f676de"
+    },
   ]);
 
   constructor() {}
