@@ -74,7 +74,7 @@ export class LandingComponent implements OnInit {
     {
       name: 'Injectors Hierarchy',
       path: 'injector-hierarchy',
-      color: '#000006',
+      color: '#99ff06',
     },
   ]);
 
