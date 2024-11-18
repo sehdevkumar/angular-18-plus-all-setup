@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {MatSelectModule} from "@angular/material/select"
+import { FakeService } from '../services/fake.service';
 @Component({
   selector: 'app-root',
   standalone: true,

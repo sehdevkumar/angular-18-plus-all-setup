@@ -86,6 +86,14 @@ export const routes: Routes = [
     canActivate: [roleGuardGuard],
   },
   {
+    path: 'injector-hierarchy',
+    loadComponent: () =>
+      import('../InjectorsHierarchy/Injectors-Hierarchy.component').then(
+        (d) => d.InjectorsHierarchyComponent
+      ),
+    canActivate: [roleGuardGuard],
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full',

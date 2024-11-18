@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { FakeService } from '../services/fake.service';
 
 @Component({
   selector: 'app-landing',
@@ -10,6 +11,9 @@ import { RouterLink } from '@angular/router';
   imports: [CommonModule, RouterLink],
 })
 export class LandingComponent implements OnInit {
+   
+  fake = inject(FakeService);
+
   landingData = signal<
     Array<{
       name: string;
@@ -67,9 +71,16 @@ export class LandingComponent implements OnInit {
       path: 'content-projection',
       color: '#000006',
     },
+    {
+      name: 'Injectors Hierarchy',
+      path: 'injector-hierarchy',
+      color: '#000006',
+    },
   ]);
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.fake,"now data")
+  }
 }
