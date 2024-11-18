@@ -20,7 +20,7 @@ export class BComponent implements OnInit {
   ngOnInit() {
     setInterval(() => {
       this.flipColor = !this.flipColor;
-
+      this.cdRef.markForCheck()
     }, 1000);
   }
 }
