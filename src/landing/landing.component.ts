@@ -80,6 +80,11 @@ export class LandingComponent implements OnInit {
       path: 'injection-tokens',
       color: '#62ff06',
     },
+    {
+      name: 'Directives',
+      path: 'directives',
+      color: '#62EC06',
+    },
   ]);
 
   constructor() {}

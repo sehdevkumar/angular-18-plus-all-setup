@@ -102,6 +102,14 @@ export const routes: Routes = [
     canActivate: [roleGuardGuard],
   },
   {
+    path: 'directives',
+    loadComponent: () =>
+      import('../directives/HotKey.directive').then(
+        (d) => d.HotKeyComponent
+      ),
+    canActivate: [roleGuardGuard],
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full',
