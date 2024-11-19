@@ -9,7 +9,7 @@ import {
 @Directive({
   selector: '[appHotKey]',
   standalone: true,
-  inputs: ['hotKeyType'],
+  inputs: ['hotKeyType']
 })
 export class HotKeyDirective {
   rr = inject(Renderer2);
@@ -24,7 +24,11 @@ export class HotKeyDirective {
   }
 
   private handleKeyDown(event: KeyboardEvent): void {
-    console.log(`Key pressed: ${event.key}`,this.hotKeyType);
+    if(event.key !== this.hotKeyType) {
+        alert("Wrong key");        
+    }else {
+        alert("Right key");
+    }
   }
 }
 
