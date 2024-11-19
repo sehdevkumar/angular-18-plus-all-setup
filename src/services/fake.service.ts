@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: "platform",
+  providedIn: 'root',
 })
 export class FakeService {
   randomNumber = Math.random() * 1000;

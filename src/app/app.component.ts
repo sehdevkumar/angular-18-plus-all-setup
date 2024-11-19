@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {MatSelectModule} from "@angular/material/select"
-import { FakeService } from '../services/fake.service';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -12,6 +11,3 @@ import { FakeService } from '../services/fake.service';
 export class AppComponent {
   title = 'angular-18-plus-all-in-setup';
 }
-
-
-

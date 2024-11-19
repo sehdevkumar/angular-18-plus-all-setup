@@ -11,7 +11,6 @@ import { FakeService } from '../services/fake.service';
   imports: [CommonModule, RouterLink],
 })
 export class LandingComponent implements OnInit {
-   
   fake = inject(FakeService);
 
   landingData = signal<
@@ -76,11 +75,16 @@ export class LandingComponent implements OnInit {
       path: 'injector-hierarchy',
       color: '#99ff06',
     },
+    {
+      name: 'Injection Tokens',
+      path: 'injection-tokens',
+      color: '#62ff06',
+    },
   ]);
 
   constructor() {}
 
   ngOnInit() {
-    console.log(this.fake,"now data")
+    console.log(this.fake, 'now data');
   }
 }

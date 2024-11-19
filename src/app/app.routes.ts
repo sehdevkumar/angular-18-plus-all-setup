@@ -94,6 +94,14 @@ export const routes: Routes = [
     canActivate: [roleGuardGuard],
   },
   {
+    path: 'injection-tokens',
+    loadComponent: () =>
+      import('../InjectionTokens/InjectionTokens.component').then(
+        (d) => d.InjectionTokensComponent
+      ),
+    canActivate: [roleGuardGuard],
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full',

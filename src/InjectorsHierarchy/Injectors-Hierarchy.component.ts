@@ -9,12 +9,20 @@ import { FakeService } from '../services/fake.service';
 })
 export class InjectorsHierarchyComponent implements OnInit {
 
-   fake = inject(FakeService)
 
-  constructor() { }
+  constructor(private fakeService: FakeService) { }
 
-  ngOnInit() {
-     console.log(this.fake,"fake service intector")
+  /**
+   * Lifecycle hook, after properties have been initialized
+   * Prints the value of the injected FakeService
+   */
+  ngOnInit(): void {
+    if (this.fakeService) {
+      console.log(this.fakeService, 'fake service injector');
+    }  
   }
 
 }
+
+
+
