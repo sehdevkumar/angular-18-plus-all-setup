@@ -104,9 +104,13 @@ export const routes: Routes = [
   {
     path: 'directives',
     loadComponent: () =>
-      import('../directives/HotKey.directive').then(
-        (d) => d.HotKeyComponent
-      ),
+      import('../directives/HotKey.directive').then((d) => d.HotKeyComponent),
+    canActivate: [roleGuardGuard],
+  },
+  {
+    path: 'pipes',
+    loadComponent: () =>
+      import('../pipes/transformString.pipe').then((d) => d.TransformStringComponent),
     canActivate: [roleGuardGuard],
   },
   {
