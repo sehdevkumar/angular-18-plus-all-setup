@@ -2,7 +2,7 @@
   @defer(on idle) {
     <div class="grid  gap-8 p-8 rounded-lg  max-w-lg grid-cols-4">
       @for (item of landingData(); track $index) {
-        <div [routerLink]="item.path" class="p-8 cursor-pointer min-w-[100px]   height-32 flex text-center items-center justify-center bg-green-800 rounded-md shadow-md text-white font-semibold font-mono" [style.background]="item?.color">
+        <div [routerLink]="item.path" class="p-8 cursor-pointer min-w-[100px] animate-bounce  height-32 flex text-center items-center justify-center bg-green-800 rounded-md shadow-md text-white font-semibold font-mono" [style.background]="item?.color">
           {{ item.name }}
         </div>
       }
