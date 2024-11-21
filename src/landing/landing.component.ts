@@ -90,6 +90,11 @@ export class LandingComponent implements OnInit {
       path: 'pipes',
       color: '#62eef6',
     },
+    {
+      name: 'Localization',
+      path: 'localization',
+      color: '#62eef6',
+    },
   ]);
 
   constructor() {}

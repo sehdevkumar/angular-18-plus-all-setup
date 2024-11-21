@@ -114,6 +114,12 @@ export const routes: Routes = [
     canActivate: [roleGuardGuard],
   },
   {
+    path: 'localization',
+    loadComponent: () =>
+      import('../Localizations/localization/localization.component').then((d) => d.LocalizationComponent),
+    canActivate: [roleGuardGuard],
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full',

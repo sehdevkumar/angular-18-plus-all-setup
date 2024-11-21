@@ -7,6 +7,10 @@ import { StoreFeatureModule, StoreModule, StoreRootModule } from '@ngrx/store';
 import { appFeature, globalAppReducer } from '../Ngrx/Reducers';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { apiInterceptor } from '../guardAndInterceptor/api.interceptor';
+import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 /**
  * @description
  * The application configuration is a set of providers that are used to configure the Angular application.
@@ -35,11 +39,22 @@ import { apiInterceptor } from '../guardAndInterceptor/api.interceptor';
  * The `eventCoalescing` property is set to `true` to enable event coalescing.
  */
 
+const httpLoaderFactory = (http: HttpClient) => {
+  return new TranslateHttpLoader(http, './i18n/', '.json');
+};
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideAnimationsAsync(),
+    provideTranslateService({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
     provideHttpClient(withInterceptors([apiInterceptor])),
     importProvidersFrom([StoreModule.forFeature(appFeature),StoreModule.forRoot(globalAppReducer)])
   ],
