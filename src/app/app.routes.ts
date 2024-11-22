@@ -126,6 +126,12 @@ export const routes: Routes = [
     canActivate: [roleGuardGuard],
   },
   {
+    path: 'encapsulation',
+    loadComponent: () =>
+      import('../encapsulation/encapsulations').then((d) => d.EncapsulationsComponent),
+    canActivate: [roleGuardGuard],
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full',

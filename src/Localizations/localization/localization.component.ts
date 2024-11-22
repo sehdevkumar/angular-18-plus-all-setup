@@ -26,7 +26,7 @@ export class LocalizationComponent {
 
     this.translate.addLangs(['en', 'hi']);
 
-    this.translate.use('hi');
+    this.translate.use('en');
   
     
     this.languageForm = this.fb.group({

@@ -11,7 +11,7 @@ import { AsyncSubject, BehaviorSubject, Observable, ReplaySubject, Subject } fro
       <h1 class="text-4xl font-semibold leading-tight text-blue-600 mb-4">
         UnitCast vs MultiCast
       </h1>
-      <p class="mt-2 text-lg font-normal text-gray-700 mb-8">
+      <p class="mt-2 text-lg font-normal text-gray-700 mb-8 text-justify animate-pulse">
         In RxJs, there are two types of observables: Unicast Observables and
         Multicast Observables. Unicast Observables are observables that create a
         new execution for each subscribed observer. Multicast Observables are
