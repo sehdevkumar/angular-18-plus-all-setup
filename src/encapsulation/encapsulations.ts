@@ -1,24 +1,24 @@
-import { Component } from "@angular/core";
+import { Component, ViewEncapsulation } from "@angular/core";
 
 
 
 @Component({
     selector: "app-encapsulation-a",
     template: `
-        <div class="container">
+        <div class="shadow-lg bg-white rounded-lg p-4 global-cls">
+            Hi A
         </div>
     `,
     standalone: true,
+    encapsulation: ViewEncapsulation.Emulated,
     styles: [
         `        
-            .container {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                height: 100%;
+            :host {
+                width: 300px;
             }
+            // .global-cls {
+            //     background-color: blue;
+            // }
         `
     ]
 })
@@ -28,19 +28,20 @@ export class EncapsulationAComponent { }
 @Component({
     selector: "app-encapsulation-b",
     template: `
-        <div class="container">
+        <div class="shadow-lg bg-white rounded-lg p-4 global-cls">
+            Hi B
         </div>
     `,
     standalone: true,
+    encapsulation: ViewEncapsulation.Emulated,
     styles: [
         `        
-            .container {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                height: 100%;
+            :host {
+                width: 300px;
+            }
+
+            .global-cls {
+                background-color: green;
             }
         `
     ]
@@ -55,23 +56,17 @@ export class EncapsulationBComponent { }
     imports: [EncapsulationAComponent, EncapsulationBComponent],
     standalone: true,
     template: `
-                        <div class="container">
+                        <div class="h-full w-full flex flex-row justify-center global-cls gap-4 p-4">
                             <app-encapsulation-a></app-encapsulation-a>
                             <app-encapsulation-b></app-encapsulation-b>
                         </div>
                     `,
     styles: [
         `        
-                            .container {
-                                display: flex;
-                                flex-direction: row;
-                                justify-content: center;
-                                align-items: center;
-                                width: 100%;
-                                height: 100%;
-                            }
+
+       
+                            
                         `
     ]
 })
 export class EncapsulationsComponent { }
-
