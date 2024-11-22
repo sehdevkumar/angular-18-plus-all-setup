@@ -120,6 +120,12 @@ export const routes: Routes = [
     canActivate: [roleGuardGuard],
   },
   {
+    path: 'unicast-multicast-reactivity',
+    loadComponent: () =>
+      import('../UnitCastMultiCast/unitcast-multicast-reactivity').then((d) => d.UnitCastMultiCastReactivityComponent),
+    canActivate: [roleGuardGuard],
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full',

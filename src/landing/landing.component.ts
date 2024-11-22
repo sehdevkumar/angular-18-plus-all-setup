@@ -95,6 +95,11 @@ export class LandingComponent implements OnInit {
       path: 'localization',
       color: '#62eef6',
     },
+    {
+      name: 'Unicast Multicast Reactivity',
+      path: 'unicast-multicast-reactivity',
+      color: '#cc88f6',
+    },
   ]);
 
   constructor() {}
