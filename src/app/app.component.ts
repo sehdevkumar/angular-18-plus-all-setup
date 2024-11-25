@@ -4,10 +4,11 @@ import {MatSelectModule} from "@angular/material/select"
 import { DynamicComponent } from '../PracticeCode/DynamicComponents/DynamicComponentWithViewContainerRef';
 import { DynamicComponentDirective } from '../PracticeCode/DynamicComponents/DynamicComponentWithDirective';
 import { AllDirectiveComponents } from '../PracticeCode/Directives/AllDirectives';
+import { AllReactiveForm } from "../PracticeCode/ReactiveForms/AllReactiveForm";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatSelectModule, DynamicComponent,DynamicComponentDirective,AllDirectiveComponents],
+  imports: [RouterOutlet, MatSelectModule, DynamicComponent, DynamicComponentDirective, AllDirectiveComponents, AllReactiveForm],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
