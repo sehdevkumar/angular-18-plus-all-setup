@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {MatSelectModule} from "@angular/material/select"
-import { DynamicComponent } from '../PracticeCode/DynamicComponentWithViewContainerRef';
-import { DynamicComponentDirective } from '../PracticeCode/DynamicComponentWithDirective';
+import { DynamicComponent } from '../PracticeCode/DynamicComponents/DynamicComponentWithViewContainerRef';
+import { DynamicComponentDirective } from '../PracticeCode/DynamicComponents/DynamicComponentWithDirective';
 import { AllDirectiveComponents } from '../PracticeCode/Directives/AllDirectives';
 @Component({
   selector: 'app-root',
