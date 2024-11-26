@@ -5,10 +5,11 @@ import { DynamicComponent } from '../PracticeCode/DynamicComponents/DynamicCompo
 import { DynamicComponentDirective } from '../PracticeCode/DynamicComponents/DynamicComponentWithDirective';
 import { AllDirectiveComponents } from '../PracticeCode/Directives/AllDirectives';
 import { AllReactiveForm } from "../PracticeCode/ReactiveForms/AllReactiveForm";
+import { AllRxjsComponent } from "../PracticeCode/Rxjs/AllRxjs";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatSelectModule, DynamicComponent, DynamicComponentDirective, AllDirectiveComponents, AllReactiveForm],
+  imports: [RouterOutlet, MatSelectModule, DynamicComponent, DynamicComponentDirective, AllDirectiveComponents, AllReactiveForm, AllRxjsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
