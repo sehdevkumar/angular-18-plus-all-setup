@@ -6,10 +6,11 @@ import { DynamicComponentDirective } from '../PracticeCode/DynamicComponents/Dyn
 import { AllDirectiveComponents } from '../PracticeCode/Directives/AllDirectives';
 import { AllReactiveForm } from "../PracticeCode/ReactiveForms/AllReactiveForm";
 import { AllRxjsComponent } from "../PracticeCode/Rxjs/AllRxjs";
+import { AllRoutesComponent } from "../PracticeCode/Routings/AllRoutings";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatSelectModule, DynamicComponent, DynamicComponentDirective, AllDirectiveComponents, AllReactiveForm, AllRxjsComponent],
+  imports: [RouterOutlet, MatSelectModule, DynamicComponent, DynamicComponentDirective, AllDirectiveComponents, AllReactiveForm, AllRxjsComponent, AllRoutesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

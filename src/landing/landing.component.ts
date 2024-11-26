@@ -105,6 +105,11 @@ export class LandingComponent implements OnInit {
       path: 'encapsulation',
       color: '#ce88f6',
     },
+    {
+      name: 'All Routes Component',
+      path: 'all-routes-component',
+      color: '#ce99f6',
+    },
   ]);
 
   constructor() {}

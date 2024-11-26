@@ -110,26 +110,41 @@ export const routes: Routes = [
   {
     path: 'pipes',
     loadComponent: () =>
-      import('../pipes/transformString.pipe').then((d) => d.TransformStringComponent),
+      import('../pipes/transformString.pipe').then(
+        (d) => d.TransformStringComponent
+      ),
     canActivate: [roleGuardGuard],
   },
   {
     path: 'localization',
     loadComponent: () =>
-      import('../Localizations/localization/localization.component').then((d) => d.LocalizationComponent),
+      import('../Localizations/localization/localization.component').then(
+        (d) => d.LocalizationComponent
+      ),
     canActivate: [roleGuardGuard],
   },
   {
     path: 'unicast-multicast-reactivity',
     loadComponent: () =>
-      import('../UnitCastMultiCast/unitcast-multicast-reactivity').then((d) => d.UnitCastMultiCastReactivityComponent),
+      import('../UnitCastMultiCast/unitcast-multicast-reactivity').then(
+        (d) => d.UnitCastMultiCastReactivityComponent
+      ),
     canActivate: [roleGuardGuard],
   },
   {
     path: 'encapsulation',
     loadComponent: () =>
-      import('../encapsulation/encapsulations').then((d) => d.EncapsulationsComponent),
+      import('../encapsulation/encapsulations').then(
+        (d) => d.EncapsulationsComponent
+      ),
     canActivate: [roleGuardGuard],
+  },
+  {
+    path: 'all-routes-component',
+    loadChildren: () =>
+      import('../PracticeCode/Routings/routes').then((v) => v.Routes),
+    canActivate: [roleGuardGuard],
+    canActivateChild: [roleGuardGuard]
   },
   {
     path: '',
